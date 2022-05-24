@@ -20,16 +20,11 @@
 */
 
 class CoffeeMachine {
-  // Doesn't work either way
-  // coffee = 7;
-  // milk = 20;
-  // water = 1000;
-  // coffeeCups = 0;
-
-  coffee = 100;
-  milk = 100;
-  water = 1000;
-  coffeeCups = 0;
+  // Constants with values assinged to them in the class
+  MIN_COFFEE = 7;
+  MIN_MILK = 20;
+  MIN_WATER = 100;
+  COFFEE_CUPS = 0;
 
   constructor(coffee, milk, water, coffeeCups) {
     this.coffee = coffee;
@@ -39,49 +34,45 @@ class CoffeeMachine {
   }
 
   letThereBeCoffee() {
-    // Doesn't work either way
-    // const coffee = 100;
-    // const milk = 100;
-    // const water = 1000;
+    // Deconstructing the constants from above in the class
+    const { MIN_COFFEE, MIN_MILK, MIN_WATER } = this;
 
-    const coffee = 7;
-    const milk = 20;
-    const water = 100;
-
-    if (this.coffee <= 0) {
+    if (this.coffee < MIN_COFFEE) {
       console.log(
         `Sorry not enough coffee, there's only: 
-        ${coffee - this.coffee} 
+        ${MIN_COFFEE - this.coffee} 
          grams left.`
       );
       return;
     }
 
-    if (this.milk <= 0) {
+    if (this.milk < MIN_MILK) {
       console.log(
         `Sorry not enough milk, there's only: 
-          ${milk - this.milk} 
+          ${MIN_MILK - this.milk} 
            grams left.`
       );
       return;
     }
 
-    if (this.water <= 0) {
+    if (this.water < MIN_WATER) {
       console.log(
         `Sorry not enough water, there's only: 
-          ${water - this.water} 
+          ${MIN_WATER - this.water} 
            grams left.`
       );
       return;
     }
-
+    this.coffee -= this.MIN_COFFEE;
+    this.milk -= this.MIN_MILK;
+    this.water -= this.MIN_WATER;
     this.coffeeCups++;
     console.log(`Number of coffee cups made today: ${this.coffeeCups} `); //Starts from 1 with the ++(incriment) on this.coffeeCups before console loggin it
     // console.log(`Number of coffee cups made today: ${this.coffeeCups++} `); Starts from 0
   }
 }
 
-const makeMeCoffee = new CoffeeMachine(25, 50, 1300, 0);
+const makeMeCoffee = new CoffeeMachine(100, 100, 1000, 0);
 
 makeMeCoffee.letThereBeCoffee();
 makeMeCoffee.letThereBeCoffee();
@@ -89,10 +80,3 @@ makeMeCoffee.letThereBeCoffee();
 makeMeCoffee.letThereBeCoffee();
 makeMeCoffee.letThereBeCoffee();
 makeMeCoffee.letThereBeCoffee();
-makeMeCoffee.letThereBeCoffee();
-makeMeCoffee.letThereBeCoffee();
-makeMeCoffee.letThereBeCoffee();
-makeMeCoffee.letThereBeCoffee();
-makeMeCoffee.letThereBeCoffee();
-makeMeCoffee.letThereBeCoffee();
-// Counts only the number of coffee cups made today, doesn't work with decreasing the amount of ingridients
