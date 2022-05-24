@@ -44,9 +44,9 @@ class CoffeeMachine {
     // const milk = 100;
     // const water = 1000;
 
-    const coffee = this.coffee;
-    const milk = this.milk;
-    const water = this.water;
+    const coffee = 7;
+    const milk = 20;
+    const water = 100;
 
     if (this.coffee <= 0) {
       console.log(
@@ -83,6 +83,8 @@ class CoffeeMachine {
 
 const makeMeCoffee = new CoffeeMachine(25, 50, 1300, 0);
 
+makeMeCoffee.letThereBeCoffee();
+makeMeCoffee.letThereBeCoffee();
 makeMeCoffee.letThereBeCoffee();
 makeMeCoffee.letThereBeCoffee();
 makeMeCoffee.letThereBeCoffee();
